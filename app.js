@@ -1,7 +1,7 @@
 require("dotenv").config()
 const express = require("express")
 const mongoose = require("mongoose") 
-const port = 2000
+const port = process.env.PORT || 2000
 const local = "mongodb://localhost/Game"
 const app = express()
 const cors = require("cors")
