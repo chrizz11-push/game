@@ -23,7 +23,7 @@ app.get("/", (req,res) => {
     res.send("server is connected to mongodb")
 })
 
-app.use("/gameAPI", controller)
+app.use("/gameApi", controller)
 
 app.listen(port, () => {
     console.log(`server is listening to:${port}`)
