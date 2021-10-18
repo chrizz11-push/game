@@ -5,11 +5,15 @@ const port = process.env.PORT || 2000
 const local = "mongodb://localhost/Game"
 const app = express()
 const cors = require("cors")
+const controller = require("./Router")
 
 app.use(express.json())
 app.use(cors())
 
-mongoose.connect(process.env.mongod, {
+// mongoose.connect(process.env.mongod, {
+//     useNewUrlParser:true,
+// })
+mongoose.connect(local, {
     useNewUrlParser:true,
 })
 .then(() => {
@@ -21,6 +25,9 @@ mongoose.connect(process.env.mongod, {
 app.get("/", (req,res) => {
     res.send("server is connected to mongodb")
 })
+
+app.use("/gameAPI", controller)
+
 app.listen(port, () => {
     console.log(`server is listening to:${port}`)
 })
