@@ -2,7 +2,7 @@ require("dotenv").config()
 const express = require("express")
 const mongoose = require("mongoose") 
 const port = process.env.PORT || 2000
-const local = "mongodb://localhost/Game"
+// const local = "mongodb://localhost/Game"
 const app = express()
 const cors = require("cors")
 const controller = require("./Router")
@@ -10,10 +10,7 @@ const controller = require("./Router")
 app.use(express.json())
 app.use(cors())
 
-// mongoose.connect(process.env.mongod, {
-//     useNewUrlParser:true,
-// })
-mongoose.connect(local, {
+mongoose.connect(process.env.mongod, {
     useNewUrlParser:true,
 })
 .then(() => {
